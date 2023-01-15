@@ -92,7 +92,7 @@ def main():
         'wmo_id', type=int,
         help=textwrap.dedent(
             """
-            世界気象機関(WMO)が定める数字５桁の識別子。
+            世界気象機関(WMO)が定める数字５桁の識別子
             識別子の一覧は https://oscar.wmo.int/oscar/vola/vola_legacy_report.txt の`IndexNbr`列を参照。
             定義の詳細は http://www.weathergraphics.com/identifiers/ を参照。
             """
