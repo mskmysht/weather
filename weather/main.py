@@ -8,7 +8,7 @@ def read_weather_stats(prec_no: str, block_no: int, year: int, month: int) -> pd
     df = pd.read_html(
         f"https://www.data.jma.go.jp/obd/stats/etrn/view/daily_s1.php?prec_no={prec_no}&block_no={block_no}&year={year}&month={month}&day=&view=p1"
         )[0][['日', '気温(℃)', '湿度(％)']]
-    df.columns = ['day', 'avg_temp', 'max_temp', 'low_temp', 'avg_hum', 'low_hum']
+    df.columns = ['day', 'avg_temp', 'max_temp', 'low_temp', 'avg_hum', 'min_hum']
     df.insert(0, 'month', month)
     df.insert(0, 'year', year)
     return df.dropna()
@@ -79,11 +79,11 @@ def main():
              - year: 観測年
              - month: 観測月
              - day: 観測日
-             - avg_temp: 一日の平均気温
-             - max_temp: 一日の最高気温
-             - low_temp: 一日の最低気温
-             - avg_hum: 一日の平均湿度
-             - low_hum: 一日の最低湿度
+             - avg_temp: 日平均気温(°C)
+             - max_temp: 日最高気温(°C)
+             - low_temp: 日最低気温(°C)
+             - avg_hum: 日平均湿度(%)
+             - min_hum: 日最小湿度(%)
             """
         ).strip(),
         formatter_class=MyHelpFormatter)
