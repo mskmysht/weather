@@ -87,7 +87,15 @@ def main():
             """
         ).strip(),
         formatter_class=MyHelpFormatter)
-    parser.add_argument('prec_no', type=str, help='都道府県コード')
+    parser.add_argument(
+        'prec_no', type=str,
+        help=textwrap.dedent(
+            """
+            都道府県コード
+            一覧は https://nlftp.mlit.go.jp/ksj/gml/codelist/PrefCd.html を参照。
+            """
+            ).strip()
+        )
     parser.add_argument(
         'wmo_id', type=int,
         help=textwrap.dedent(
